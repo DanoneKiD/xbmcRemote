@@ -2,9 +2,13 @@ require([ "require", "use!backbone", "xbmcRemote", "crossroads", "jquery",
         "modules/views", "hasher", "modules/models" ], function(require,
         Backbone, xbmcRemote, crossroads, $, views, hasher, models) {
 
-    $.extend($.mobile, {
-        hashListeningEnabled : false
+    $.mobile = $.mobile || {};
+    _.extend($.mobile, {
+        hashListeningEnabled : false,
+        ajaxEnabled : false,
+        linkBindingEnabled : false
     });
+
     $(document).bind("mobileinit", function(evt) {
         hasher.changed.add(handleChanges); // add hash change listener
         hasher.initialized.add(handleChanges); // add initialized listener (to
@@ -13,12 +17,28 @@ require([ "require", "use!backbone", "xbmcRemote", "crossroads", "jquery",
         hasher.init(); // initialize hasher (start listening for history
         // changes)
     });
+
     require([ "jquerymobile" ], function(jqm) {
+
+    });
+
+    require([ "jqmpatches" ], function(jqm) {
 
     });
 
     // Put application wide code here
 
+    // routing logic
+    crossroads.addRoute('/music/', function(id) {
+
+        var movies = new xbmcRemote.models.movieCollection();
+        var view = new xbmcRemote.views.movieList({
+            el : $("#mainWindow"),
+            data : movies
+        });
+        view.render();
+    });
+    
     // routing logic
     crossroads.addRoute('/movies/:id:', function(id) {
 
@@ -32,6 +52,8 @@ require([ "require", "use!backbone", "xbmcRemote", "crossroads", "jquery",
                     data : movies
                 });
                 view.render();
+
+
             },
             error : function(models, options) {
                 alert('error');

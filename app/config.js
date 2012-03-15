@@ -17,7 +17,8 @@ require.config({
         hasher : "../assets/js/libs/hasher",
         jquery : "../assets/js/libs/jquery",
         jquerymobile : "../assets/js/libs/jquery.mobile",
-
+        jqmpatches : "../assets/js/libs/jqueryMobile.monkeyPatch",
+        
         // Shim Plugin
         use : "../assets/js/plugins/use"
     },

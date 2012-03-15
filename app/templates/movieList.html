@@ -1,4 +1,14 @@
-{{#list movies}}
-  <a href="movies">{{label}}</a>
-  <a class="videoDetailLink" href="/movies/{{movieid}}">{{label}}</a>
-{{/list}}
+<ul data-role="listview" id="movieList">
+	{{#each movies}}
+	<li>
+		<div>
+			<h3>{{this.label}}</h3>
+			<div class="ui-li-aside">
+				<div data-role="controlgroup" data-type="horizontal">
+					<a href="#" data-role="button" data-icon="arrow-r" data-command="play" data-movieId="{{this.movieid}}" data-iconpos="notext"></a> 
+					<a href="#" data-role="button" data-icon="plus" data-command="add" data-movieId="{{this.movieid}}" data-iconpos="notext"></a> 
+					<a href="#" data-role="button" data-icon="info" data-command="info" data-movieId="{{this.movieid}}" data-iconpos="notext"></a>
+				</div>
+			</div>
+	</li> {{/each}}
+</ul>
