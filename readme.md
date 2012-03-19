@@ -15,6 +15,7 @@ I am also using this as a learning project to explore some of the latest mobile 
 
 ## Installation ##
 ``` bash
+<<<<<<< HEAD
 cd xbmcRemote
 git clone https://github.com/sheebz/xbmcRemote.git .
 rm -rf .git
@@ -31,4 +32,9 @@ open -a Google\ Chrome --args --disable-web-security
 cd xbmcRemote
 node build server
 open -a Google\ Chrome --args --disable-web-security 
+=======
+cd myproject
+git clone https://github.com/sheebz/xbmcRemote.git .
+rm -rf .git
+>>>>>>> 3bfa3d4bf9c91e29c2eee6c42873937d179720ea
 ```

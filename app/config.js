@@ -17,8 +17,9 @@ require.config({
         hasher : "../assets/js/libs/hasher",
         jquery : "../assets/js/libs/jquery",
         jquerymobile : "../assets/js/libs/jquery.mobile",
-        jqmpatches : "../assets/js/libs/jqueryMobile.monkeyPatch",
-        
+        historyqueryAdapter : "../assets/js/libs/history.adapter.jquery",
+        history : "../assets/js/libs/history",
+        paper : "../assets/js/libs/paper",
         // Shim Plugin
         use : "../assets/js/plugins/use"
     },
@@ -33,8 +34,14 @@ require.config({
         },
         handlebars : {
             attach : "Handlebars"
+        },
+        paper : {
+            attach : "paper"
+        },
+        historyqueryAdapter : {
+            deps : [ "jquery", "history" ],
+            attach : "history"
         }
+
     }
 });
-
-
