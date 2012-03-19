@@ -15,7 +15,6 @@ I am also using this as a learning project to explore some of the latest mobile 
 
 ## Installation ##
 ``` bash
-<<<<<<< HEAD
 cd xbmcRemote
 git clone https://github.com/sheebz/xbmcRemote.git .
 rm -rf .git
@@ -25,16 +24,8 @@ rm -rf .git
 * Due to same origin policy, need to run web browser with security disabled.  
 ``` bash
 open -a Google\ Chrome --args --disable-web-security
-```
 
 * Project runs under express server, need to install node and express.  
 ``` bash
 cd xbmcRemote
 node build server
-open -a Google\ Chrome --args --disable-web-security 
-=======
-cd myproject
-git clone https://github.com/sheebz/xbmcRemote.git .
-rm -rf .git
->>>>>>> 3bfa3d4bf9c91e29c2eee6c42873937d179720ea
-```
