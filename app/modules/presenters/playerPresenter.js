@@ -1,8 +1,11 @@
-require([ "use!backbone", "xbmcRemote" ],
-        function(Backbone, xbmcRemote) {
-            xbmcRemote.views.defaultView = Backbone.View
+define(
+        [ "use!backbone", "xbmcRemote", "crossroads", "modules/service/player"],
+        function(Backbone, xbmcRemote, crossroads, pl) {
+            var player = pl;
+            xbmcRemote.views.playerView = Backbone.View
                     .extend({
-                        template : "app/templates/defaultView.html",
+                        player : player,
+                        template : "app/templates/playerView.html",
                         events : {
                             "click [data-command]" : "executeCommand"
                         },
@@ -34,8 +37,7 @@ require([ "use!backbone", "xbmcRemote" ],
                             var self = this;
 
                             xbmcRemote.fetchTemplate(this.template, function(templateContent) {
-                                    var template = Handlebars
-                                            .compile(templateContent);
+                                    var template = Handlebars.compile(templateContent);
                                     var context = {};
                                     var html = template(context);
                                     self.el.innerHTML = html;
@@ -43,6 +45,13 @@ require([ "use!backbone", "xbmcRemote" ],
                                 });
 
                         }
+                        
+
                     });
+            
+            //controller logic
+            crossroads.addRoute("/player/",function(){
+                
+            });
 
         });

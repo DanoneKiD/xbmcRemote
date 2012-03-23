@@ -2,6 +2,15 @@ define(
         [ "use!backbone", "xbmcRemote" ],
         function(Backbone, xbmcRemote) {
 
+            xbmcRemote.models.player = Backbone.Model.extend({
+                initialize : function() {
+
+                }
+            
+
+            
+            });
+
             xbmcRemote.models.movie = Backbone.Model.extend({
                 defaults : {
                     "fanart" : "",
@@ -17,8 +26,8 @@ define(
                         model : xbmcRemote.models.movie,
                         sync : function(method, model, options) {
 
-                            return $.ajax(
-                                    {
+                            return $
+                                    .ajax({
                                         type : 'POST',
                                         crossDomain : true,
                                         url : 'http://XBMC:1060/jsonrpc',
@@ -29,8 +38,8 @@ define(
                                     });
 
                         },
-                        parse: function(resp, xhr) {
+                        parse : function(resp, xhr) {
                             return resp.result.movies;
-                          }
+                        }
                     });
         });

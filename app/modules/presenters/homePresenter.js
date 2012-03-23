@@ -1,6 +1,5 @@
-require(
-        [ "use!backbone", "xbmcRemote" ],
-        function(Backbone, xbmcRemote) {
+require([ "use!backbone", "xbmcRemote", "crossroads" ],
+        function HomePresenter(Backbone, xbmcRemote, crossroads) {
             xbmcRemote.views.defaultView = Backbone.View
                     .extend({
                         template : "app/templates/defaultView.html",
@@ -45,5 +44,15 @@ require(
 
                         }
                     });
-
+            
+            //controller logic
+            crossroads.addRoute("/Home/",function(){
+                //render controls
+                currentView = new xbmcRemote.views.defaultView({el:$("#contentWindow")});
+                currentView.render();
+                
+                //render player
+                var playerView = new xbmcRemote.views.playerView({el:$("#playerWindow")});
+                playerView.render();
+            });
         });

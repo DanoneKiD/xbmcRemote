@@ -1,7 +1,11 @@
-require([ "require", "use!backbone", "xbmcRemote", "crossroads", "jquery",
-        "modules/views/defaultview", "hasher", "modules/models", "router" ],
-        function(require, Backbone, xbmcRemote, crossroads, $, views, hasher,
-                models) {
+require([ "require", 
+          "use!backbone", 
+          "xbmcRemote", 
+          "crossroads", 
+          "jquery",
+          "use!historyqueryAdapter",
+          "modules/presenters/homePresenter" ],
+        function(require, Backbone, xbmcRemote, crossroads, $, homePresenter, History) {
 
             $.mobile = $.mobile || {};
             _.extend($.mobile, {
@@ -74,6 +78,40 @@ require([ "require", "use!backbone", "xbmcRemote", "crossroads", "jquery",
                             // xbmcRemote.router.navigate(href, true);
                         }
                     });
+            
+            //pushstate/history logic
+            var History = window.History; // Note: We are using a capital H instead of
+                                            // a lower h
 
-            return xbmcRemote;
+            // Bind to StateChange Event
+            History.Adapter.bind(window, 'statechange', function() { // Note: We are
+                                                                        // using
+                                                                        // statechange
+                                                                        // instead of
+                                                                        // popstate
+                var State = History.getState(); // Note: We are using History.getState()
+                                                // instead of event.state
+                History.log(State.data, State.title, State.url);
+            });
+            crossroads.routed.add(function(request, data) {
+                console.log(request);
+                console.log(data.route + ' - ' + data.params + ' - ' + data.isFirst);
+                History.pushState({
+                    state : 1
+                }, "State 1", request);
+            });
+            
+//            //load first presenter
+//            crossroads.bypassed.add(function(request) {
+//                if(request !== ''){
+//                    require(['modules/presenters/' + request], function(presenter){
+//                       crossroads.parse(request); 
+//                    });
+//                }
+//                
+//            });
+
+            $(document).ready(function(evt){
+                crossroads.parse('/Home');
+            });
         });

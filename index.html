@@ -1,22 +1,81 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<!-- Conditional comment for mobile ie7 blogs.msdn.com/b/iemobile/ -->
+<!--[if IEMobile 7 ]>    <html class="no-js iem7" lang="en"> <![endif]-->
+<!--[if (gt IEMobile 7)|!(IEMobile)]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
 <head>
-<title>My Page</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+
+<title></title>
+<meta name="description" content="">
+
+<!-- Mobile viewport optimization h5bp.com/ad -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width">
+
+<!-- Home screen icon  Mathias Bynens mathiasbynens.be/notes/touch-icons -->
+<!-- For iPhone 4 with high-resolution Retina display: -->
+<link rel="/assets/img/apple-touch-icon-precomposed" sizes="114x114"
+	href="/assets/img/h/apple-touch-icon.png">
+<!-- For first-generation iPad: -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="/assets/img/m/apple-touch-icon.png">
+<!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+<link rel="apple-touch-icon-precomposed"
+	href="/assets/img/l/apple-touch-icon-precomposed.png">
+<!-- For nokia devices: -->
+<link rel="shortcut icon" href="/assets/img/l/apple-touch-icon.png">
+
+<!-- iOS web app, delete if not needed. https://github.com/h5bp/mobile-boilerplate/issues/94 -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<script>
+    (function() {
+        var a;
+        if (navigator.platform === "iPad") {
+            a = window.orientation === 90 || window.orientation === -90 ? "/assets/img/startup-tablet-landscape.png"
+                    : "/assets/img/startup-tablet-portrait.png"
+        } else {
+            a = window.devicePixelRatio === 2 ? "/assets/img/startup-retina.png"
+                    : "/assets/img/startup.png"
+        }
+        document.write('<link rel="apple-touch-startup-image" href="'+a+'"/>')
+    })()
+</script>
+
+
+<!-- The script prevents links from opening in mobile safari. https://gist.github.com/1042026 -->
+<script>(function(a,b,c){if(c in b&&b[c]){var d,e=a.location,f=/^(a|html)$/i;a.addEventListener("click",function(a){d=a.target;while(!f.test(d.nodeName))d=d.parentNode;"href"in d&&(d.href.indexOf("http")||~d.href.indexOf(e.host))&&(a.preventDefault(),e.href=d.href)},!1)}})(document,window.navigator,"standalone")</script>
+
+
+<!-- Mobile IE allows us to activate ClearType technology for smoothing fonts for easy reading -->
+<meta http-equiv="cleartype" content="on">
+
+<!-- more tags for your 'head' to consider h5bp.com/d/head-Tips -->
+
+<!-- Main Stylesheet -->
+
 <link rel="stylesheet" href="/assets/css/jquery.mobile.css" />
-<link rel="stylesheet" href="/assets/css/jquery.mobile.structure.css" />
 <link rel="stylesheet" href="/assets/css/jquery.mobile.theme.css" />
-<link rel="stylesheet" href="/assets/css/app.css" />
+<link rel="stylesheet" href="/assets/css/style.css">
 
-
+<!-- All JavaScript at the bottom, except for Modernizr which enables HTML5 elements & feature detects -->
+<script src="/assets/js/libs/modernizr-2.0.6.min.js"></script>
 </head>
+
 <body>
-	
+
+
 	<div data-role="page" id="mainPage">
 		<div data-role="footer" data-theme="b">
 			<h4>XBMC</h4>
 		</div>
 		<div id="contentWindow"></div>
+		<div id="playerWindow"></div>
 		<div data-role="navbar" data-position="fixed">
 			<ul>
 				<li><a href="/home" class="ui-btn-active">Home</a></li>
@@ -31,7 +90,21 @@
 
 	</div>
 	<!-- /page -->
+
+
+	<!-- JavaScript at the bottom for fast page loading -->
+
 	<script data-main="/app/config" src="/assets/js/libs/require.js"></script>
+	<!-- Grab Google CDN's jQuery, with a protocol relative URL; fall back to local if necessary -->
+
+	<!-- scripts concatenated and minified via ant build script -->
+
+	<!-- end concatenated and minified scripts-->
+
+	<!-- Debugger - remove for production -->
+	<!-- <script src="https://getfirebug.com/firebug-lite.js"></script> -->
+
+
 
 </body>
 </html>
