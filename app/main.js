@@ -4,7 +4,11 @@ require([ "require",
           "crossroads", 
           "jquery",
           "use!historyqueryAdapter",
-          "modules/presenters/homePresenter" ],
+          //presenters
+          "modules/presenters/homePresenter",
+          "modules/presenters/movieListPresenter",
+          "modules/presenters/playerPresenter"
+          ],
         function(require, Backbone, xbmcRemote, crossroads, $, homePresenter, History) {
 
             $.mobile = $.mobile || {};
@@ -112,6 +116,6 @@ require([ "require",
 //            });
 
             $(document).ready(function(evt){
-                crossroads.parse('/Home');
+                crossroads.parse('/Home/');
             });
         });

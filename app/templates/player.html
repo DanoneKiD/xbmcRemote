@@ -1,38 +1,14 @@
-<div id="player">
-	<div class="ui-grid-d">
-		<div class="ui-block-a">
-			<a href="index.html" data-role="button"></a>
-		</div>
-		<div class="ui-block-b">
-			<a href="index.html" data-role="button"></a>
-		</div>
-		<div class="ui-block-c">
-			<a href="index.html" data-role="button"></a>
-		</div>
-		<div class="ui-block-c">
-			<a href="index.html" data-role="button"></a>
-		</div>
+<div class="nowPlaying">
 
-		<div class="ui-block-c">
-			<a href="index.html" data-role="button"></a>
-		</div>
-	</div>
-	<div class="ui-grid-d">
-		<div class="ui-block-a">
-			<a href="index.html" data-role="button"></a>
-		</div>
-		<div class="ui-block-b">
-			<a href="index.html" data-role="button"></a>
-		</div>
-		<div class="ui-block-c">
-			<a href="index.html" data-role="button"></a>
-		</div>
-		<div class="ui-block-c">
-			<a href="index.html" data-role="button"></a>
-		</div>
+	{{#with item}}
+	<h2>{{label}}</h2>
+	{{/with}}
+	{{#with item.moviedetails}}
+	<ul>
+		<li>Year {{year}}</li>
+		<li>
+	</ul>
+	<p>{{tagline}}</p>
 
-		<div class="ui-block-c">
-			<a href="index.html" data-role="button"></a>
-		</div>
-	</div>
+	{{/with}} 
 </div>

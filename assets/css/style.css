@@ -204,8 +204,8 @@ td { vertical-align: top; }
    ========================================================================== */
 
 
-
-
+ul.player-buttons li { display:inline; }
+ul.player-buttons i {font-size:24px}
 
 
 

@@ -1,33 +1,39 @@
 define(["jquery"], function($){
     var player = {
-        getActivePlayers : function(){
-            $.when($.ajax({
+        getActivePlayers : function(success, error){
+            return $.ajax({
                 type : 'POST',
                 crossDomain : true,
                 url : 'http://XBMC:1060/jsonrpc',
                 data : '{"jsonrpc": "2.0", "method": "Player.GetActivePlayers","id": 1}',
-//                success : options.success,
-//                error : options.error,
+                success : success,
+                error : error,
                 dataType : "json"
-            })).then(function(data, status, xhr){
-                 alert('status');
             });
         },
         
         getItem : function(playerId, successCallback, errorCallback){
-            $.ajax({
+            return $.ajax({
                 type : 'POST',
                 crossDomain : true,
                 url : 'http://XBMC:1060/jsonrpc',
-                data : '{"jsonrpc": "2.0", "method": "Player.GetProperties","params": {"playerId":'
-                    + playerid + '1} "id": 1}',
+                data : '{"jsonrpc": "2.0", "method": "Player.GetItem","params": {"playerid":'
+                    + playerId + '}, "id": 1}',
                 success : successCallback,
                 error : errorCallback,
                 dataType : "json"});
         },
         
-        getProperties : function(){
-            
+        getProperties : function(playerId,success, error){
+            return $.ajax({
+                type : 'POST',
+                crossDomain : true,
+                url : 'http://XBMC:1060/jsonrpc',
+                data : '{"jsonrpc": "2.0", "method": "Player.GetProperties","params": {"playerid":'
+                    + playerId + ', "properties" : ["percentage","playlistid"]}, "id": 1}',
+                success : success,
+                error : error,
+                dataType : "json"});
         },
         
         goNext : function(){
