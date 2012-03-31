@@ -204,11 +204,16 @@ td { vertical-align: top; }
    ========================================================================== */
 
 
-ul.player-buttons li { display:inline; }
-ul.player-buttons i {font-size:24px}
 
 
+#button-grid .ui-btn,#directional-buttons .ui-btn,
+#player-buttons .ui-btn {width:54px; height:54px; position:relative }
+#button-grid i{font-size:32px; position: static; text-align:center; margin-left:auto; margin-right:auto}
 
+ {width:54px; height:54px; position:relative }
+#directional-buttons i{font-size:32px; position: static; text-align:center; margin-left:auto; margin-right:auto}
+
+#player-buttons i{font-size:32px; position: static; text-align:center; margin-left:auto; margin-right:auto}
 
 
 
